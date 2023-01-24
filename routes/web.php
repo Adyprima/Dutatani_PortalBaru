@@ -12,6 +12,7 @@
 */
 
 use App\Http\Controllers\RegisCobaController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
@@ -196,6 +197,46 @@ Route::get('/listMateri','landingpageController@listMateri');
 Route::get('/listMateri/cariMateri','landingpageController@listMateri');
 Route::get('/listMateri/detailMateri/{ID}','landingpageController@detailmateri');
 
+//map
+Route::get('admin/mapping/', 'GoogleController@index');
+Route::get('admin/daftar_petani/', 'GoogleController@daftar_petani');
+Route::get('detail_lahan/{id}', 'GoogleController@detail_lahan');
+Route::get('detail_lahan_petani/{id}', 'GoogleController@detail_lahan_petani');
+// Route::get('detail_lahan_petani/{id}/{user}', [
+//     'as' => 'detalLahPetani', 'uses' => 'GoogleController@detail_lahan_petani']);
+// Route::get('/cari/lahan/','GoogleController@daftar_petani');
+Route::get('admin/daftar/lahan/semua','GoogleController@daftar_petani');
+Route::get('admin/kotak/{id}/{user}','GoogleController@detail_lahan');
+
+Route::get('detail_titik/{id}','GoogleController@detail_titik');
+
+
 Route::get('/profil', function () {
     return view('landing_page/profil');
 });
+
+//cari
+Route::get('/search', 'GoogleController@search');
+
+//tambah lahan petani
+Route::get('admin/tambah_lahan/{id}','GoogleController@tambah_lahan');
+Route::post('tambah_lahan','GoogleController@post_lahan');
+
+//Route Kabupaten,Provinsi,Kecamatan,Kelurahan
+Route::get('gen_kab/{prov}','JsonGen@gen_kab')->name('gen_kab');
+Route::get('gen_kec/{kab}','JsonGen@gen_kec')->name('gen_kec');
+Route::get('gen_kel/{kec}','JsonGen@gen_kel')->name('gen_kel');
+
+//ubah lahan dan titik
+Route::get('admin/ubah_lahan/{id}','GoogleController@ubah_lahan');
+Route::get('admin/ubah_titik/{id}','GoogleController@ubah_titik');
+Route::post('ubah_lahan','GoogleController@post_lahan_ubah');
+Route::post('ubah_titik','GoogleController@post_titik_ubah');
+
+//hapus lahan dan titik
+Route::get('hapus_lahan/{id}','GoogleController@hapus_lahan');
+Route::get('hapus/{id}','GoogleController@hapus_titik');
+
+//tambah_titik
+Route::get('admin/tambah_titik/{id}','GoogleController@tambah_titik');
+Route::post('tambah_titik','GoogleController@post_titik');

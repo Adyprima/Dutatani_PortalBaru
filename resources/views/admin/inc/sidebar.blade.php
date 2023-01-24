@@ -234,6 +234,34 @@
           </li>
             </ul>
           </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-align-justify"></i>
+              <p>
+                Mapping
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+          <li class="nav-item">
+            <a href="{{url('admin/mapping')}}" class="nav-link">
+              <i class="nav-icon far fa-newspaper"></i>
+              <p>
+                Home
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{url('admin/daftar_petani')}}" class="nav-link">
+              <i class="nav-icon far fa-newspaper"></i>
+              <p>
+                Daftar Petani
+              </p>
+            </a>
+          </li>
+        
+            </ul>
+          </li>
          
        
   

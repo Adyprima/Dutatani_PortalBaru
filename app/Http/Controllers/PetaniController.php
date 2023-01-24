@@ -99,6 +99,7 @@ class PetaniController extends Controller
         DB::table('master_user_kat')->insert($kat);
        
         return back()->with('success', 'Ubah Petani Berhasil');
+        
                  
     }
     public function daftar_petani()
@@ -228,8 +229,10 @@ class PetaniController extends Controller
                     'tanggal_lahir'=>$Tanggal_Lahir,'alamat'=>$Alamat_Petani,'nomor_telpon'=>$Nomor_Telpon,'Email'=>$Email);
         DB::table('master_petani')->where('ID_User', $id)->update($maspet);
         DB::table('master_detail_user')->where('ID_User', $id)->update($detail);
+        //return $detail;
         }
         return redirect('admin/daftar/petani/semua')->with('success', 'Ubah Petani Berhasil');
+        
 
         // if($request->hasFile('Foto')){
      //        $resorce  = $request->file('Foto');
@@ -408,7 +411,7 @@ class PetaniController extends Controller
 
     
 
-    public function data_diri_petani()
+    public function data_diri_petani($id)
     {
         $data = DB::table('master_petani')->where('ID_User',$id)->first();
         return view('petani.data_diri', compact('data'));

@@ -79,12 +79,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- ./wrapper -->
 
 <!-- REQUIRED SCRIPTS -->
-
+@stack('test')
 <!-- jQuery -->
-<script src="{{asset('/lte3/plugins/jquery/jquery.min.js') }}"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <!-- Bootstrap 4 -->
 <script src="{{asset('/lte3/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('/lte3/dist/js/adminlte.min.js') }}"></script>
+
+
 </body>
+@stack('custom-script')
 </html>
